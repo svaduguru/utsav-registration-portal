@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin — Utsav</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="page-wrap">
+      <header class="site-header">
+        <a href="/" class="brand">College <span>Utsav</span> Admin</a>
+        <nav class="nav-links">
+          <a href="/dashboard.html">User dashboard</a>
+          <a href="#" id="logout-btn">Logout</a>
+        </nav>
+      </header>
+
+      <div data-page="admin">
+        <div id="msg" class="msg hidden" role="alert"></div>
+        <p class="loading" id="admin-loading">Loading…</p>
+
+        <section class="admin-section" id="users-section" style="display: none">
+          <h2>All users</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>College</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody id="users-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="admin-section" id="events-section" style="display: none">
+          <h2>Events &amp; participants</h2>
+          <div id="admin-events-root"></div>
+        </section>
+      </div>
+
+      <footer class="site-footer">College Utsav — Admin</footer>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Events — Utsav</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="page-wrap">
+      <header class="site-header">
+        <a href="/" class="brand">College <span>Utsav</span></a>
+        <nav class="nav-links">
+          <span class="user-bar" id="user-greeting">Loading…</span>
+          <a href="#" id="admin-link" class="hidden">Admin</a>
+          <a href="#" id="logout-btn">Logout</a>
+        </nav>
+      </header>
+
+      <div data-page="dashboard">
+        <h1 style="margin-top: 0; font-size: 1.35rem">Events</h1>
+        <p class="loading" id="events-loading">Loading events…</p>
+        <div id="msg" class="msg hidden" role="alert"></div>
+        <div class="events-grid" id="events-root"></div>
+      </div>
+
+      <footer class="site-footer">College Utsav Registration Portal</footer>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
