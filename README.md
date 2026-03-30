@@ -33,6 +33,31 @@ A beginner-friendly college fest registration app: **Node.js**, **Express**, **S
    - Student dashboard (after login): `/dashboard.html`
    - Admin dashboard: `/admin.html` (admin account only)
 
+### First-time commands (quick reference)
+
+From the project root, the **only** shell commands you need for this app are:
+
+```bash
+npm install
+npm start
+```
+
+There are **no separate database initialization commands** (no `sqlite3` CLI step, no manual `CREATE TABLE`, no `npm run migrate`). On every `npm start`, the server runs schema creation and seeding in code before listening on the port:
+
+- **`db.js`** — `initSchema()` creates tables if they do not exist.
+- **`seed.js`** — `seed()` inserts admin, demo users, events, and registrations (idempotent; safe on later runs).
+
+That logic is invoked from **`server.js`** in the `start()` function (`await initSchema();` then `await seed();`).
+
+**Two different “SQLite” things:**
+
+| What | How you get it | Required? |
+|------|------------------|-----------|
+| **Node package `sqlite3`** (lets the app open `utsav.db`) | `npm install` pulls it from `package.json` | **Yes** — needed to run the server |
+| **SQLite command-line tool** (`sqlite3` on your PATH) | Optional install; see [Installing the SQLite3 CLI](#installing-the-sqlite3-cli-windows-macos-and-linux) | **No** — only if you want to run SQL in a terminal against `utsav.db` |
+
+To **re-run a full “first run”** (wipe and recreate `utsav.db` plus seed), delete `utsav.db` in this folder, then run `npm start` again. See [Where is the SQLite database?](#where-is-the-sqlite-database).
+
 ## First run
 
 On the first start, the app:
