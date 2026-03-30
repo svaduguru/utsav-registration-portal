@@ -1,0 +1,187 @@
+Create a beginner-friendly full-stack Node.js project called "utsav-registration-portal" for college students.
+
+Tech stack:
+- Node.js
+- Express.js
+- SQLite using sqlite3 package
+- HTML, CSS, vanilla JavaScript
+- Express session for login handling
+
+Goal:
+Build a college utsav registration portal where students can register, log in, view events, join events, and where an admin can view all events and participants.
+
+Functional requirements:
+
+1. User registration
+- A new user can register with:
+  - full name
+  - email
+  - password
+  - college name
+- Email should be unique
+- Store users in SQLite database
+
+2. User login
+- User can log in using email and password
+- Maintain session after login
+- Show different UI for admin and normal user
+
+3. Admin login
+- Seed one admin user:
+  - email: admin@utsav.com
+  - password: admin123
+  - role: admin
+
+4. Events
+- Seed the following events automatically on first run:
+  Day 1:
+  - Dance Battle, 2026-04-10, 10:00 AM, max participants 10
+  - Quiz Contest, 2026-04-10, 12:00 PM, max participants 10
+  - Fashion Walk, 2026-04-10, 03:00 PM, max participants 10
+
+  Day 2:
+  - Music Solo, 2026-04-11, 10:00 AM, max participants 10
+  - Group Singing, 2026-04-11, 01:00 PM, max participants 10
+  - Coding Challenge, 2026-04-11, 03:30 PM, max participants 10
+
+5. Demo users
+- Seed sample users automatically on first run:
+  - Ananya, ananya@example.com, pass123, ABC College
+  - Rahul, rahul@example.com, pass123, XYZ College
+  - Meera, meera@example.com, pass123, ABC College
+  - Arjun, arjun@example.com, pass123, LMN College
+  - Kiran, kiran@example.com, pass123, PQR College
+  - Pooja, pooja@example.com, pass123, STU College
+  - Vikas, vikas@example.com, pass123, DEF College
+
+6. Demo registrations
+- Seed these registrations automatically:
+  Dance Battle:
+    - Ananya
+    - Rahul
+    - Meera
+  Quiz Contest:
+    - Rahul
+    - Arjun
+    - Kiran
+  Fashion Walk:
+    - Meera
+    - Pooja
+  Music Solo:
+    - Ananya
+    - Vikas
+  Group Singing:
+    - Arjun
+    - Kiran
+    - Pooja
+  Coding Challenge:
+    - Rahul
+    - Vikas
+
+7. Event listing for logged in user
+- After login, user should see all events in card or table format
+- Show:
+  - event name
+  - date
+  - time
+  - max participants
+  - current participant count
+  - available seats
+  - participant names
+- If the logged in user is already registered for that event, show:
+  - "Already registered"
+  and disable the join button
+- If event is full, show:
+  - "Event Full"
+  and disable the join button
+- Otherwise show a "Participate" button
+
+8. Participation rules
+- A user can register for an event only once
+- When a new registration happens, available seats must decrease
+- Do not allow more than 10 participants per event
+
+9. Admin dashboard
+- Admin can see:
+  - list of all users
+  - list of all events
+  - event date and time
+  - max seats
+  - occupied seats
+  - available seats
+  - participants per event
+
+10. Pages required
+- Home page
+- Register page
+- Login page
+- User dashboard
+- Admin dashboard
+
+11. Database design
+Use SQLite and create tables automatically on startup:
+- users
+  - id
+  - full_name
+  - email
+  - password
+  - college
+  - role
+  - created_at
+- events
+  - id
+  - title
+  - event_date
+  - event_time
+  - max_participants
+- registrations
+  - id
+  - user_id
+  - event_id
+  - created_at
+- Add unique constraint on user_id + event_id to prevent duplicate participation
+
+12. Project structure
+Use a simple beginner-friendly structure like:
+- server.js
+- db.js
+- seed.js
+- package.json
+- public/
+  - index.html
+  - register.html
+  - login.html
+  - dashboard.html
+  - admin.html
+  - style.css
+  - script.js
+
+13. API endpoints
+Create clean Express endpoints for:
+- register user
+- login
+- logout
+- get logged in user
+- get events with participants and seat availability
+- participate in event
+- get users
+- admin event summary
+
+14. UI expectations
+- Clean beginner-friendly UI
+- College fest look and feel
+- Mobile-friendly basic layout
+- Use plain HTML/CSS/JS only
+- Keep code readable and well-organized
+
+15. Important behavior
+- On first run, create DB file, tables, and seed data automatically
+- If data already exists, do not insert duplicates again
+- Show useful success/error messages in UI
+
+16. Output expectation
+Generate complete working code for all files.
+Also include:
+- package.json
+- clear run instructions
+- comments only where useful for beginners
